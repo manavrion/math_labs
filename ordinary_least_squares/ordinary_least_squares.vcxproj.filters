@@ -39,6 +39,9 @@
     <ClInclude Include="line.h">
       <Filter>LabHelpers</Filter>
     </ClInclude>
+    <ClInclude Include="ordinary_least_squares.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

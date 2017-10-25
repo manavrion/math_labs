@@ -5,6 +5,7 @@
 #include <vector>
 #include <utility>
 #include <iostream>
+#include "ordinary_least_squares.h"
 
 struct Function {
 	std::vector<double> x;
@@ -115,53 +116,11 @@ std::vector<double> solveSlu(std::vector<Function> slu) {
 	return std::move(ans);
 }
 
+std::vector<double> RunOrdinaryLeastSquares(std::vector<double> xs, std::vector<double> fs, int order) {
 
-int mainalt() {
+    std::vector<Function> slu = makeSlu(std::move(xs), std::move(fs), order);
 
-	std::vector<Function> slu;
+    std::vector<double> a = solveSlu(std::move(slu));
 
-#ifndef _DEBUG
-
-	int n;
-
-	std::cout << "Input point count: " << std::endl;
-	std::cin >> n;
-
-	std::vector<double> xs;
-	std::vector<double> fs;
-
-	std::cout << "Input points in format \"x f\"" << std::endl;
-	while (n--) {
-		int x, f;
-		std::cin >> x >> f;
-		xs.push_back(x);
-		fs.push_back(f);
-	}
-
-	int m;
-
-	while (true) {
-		std::cout << "Input m, if m < 0 program is terminate" << std::endl;
-		std::cin >> m;
-		if (m < 0) {
-			break;
-		}
-
-		slu = makeSlu(xs, fs, m);
-		
-	}
-
-#else
-	std::vector<double> xs({-5, -3.5, -2,  1.5, 3.25, 5});
-	std::vector<double> fs({0.5, 1.2, 1.4, 1.6, 1.7,  1.5});
-
-	slu = makeSlu(xs, fs, 3);
-
-#endif // !_DEBUG
-
-	std::vector<double> a = solveSlu(slu);
-
-
-    return 0;
+    return std::move(a);
 }
-
