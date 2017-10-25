@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="LabHelpers">
+      <UniqueIdentifier>{cfb368f0-ae0f-4ae3-baf4-f9898d25b9e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -27,8 +30,14 @@
     <ClInclude Include="main.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="i_paintable.h">
+      <Filter>LabHelpers</Filter>
+    </ClInclude>
     <ClInclude Include="gdi_plate.h">
-      <Filter>Header Files</Filter>
+      <Filter>LabHelpers</Filter>
+    </ClInclude>
+    <ClInclude Include="line.h">
+      <Filter>LabHelpers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
