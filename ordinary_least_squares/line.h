@@ -10,7 +10,7 @@ namespace ordinary_least_squares {
         Line(PointF a, PointF b, Gdiplus::Color color, float width)
             : a(a), b(b), color(color), width(width) {}
 
-        void Paint(Gdiplus::Graphics& graphics, std::function<PointF(PointF)>& toScreenCoord) {
+        void Paint(Gdiplus::Graphics& graphics, std::function<PointF(PointF)>& toScreenCoord, std::function<PointF(PointF)>& toRealCoord) {
             graphics.DrawLine(&Gdiplus::Pen(color, width), toScreenCoord(a), toScreenCoord(b));
         }
 
