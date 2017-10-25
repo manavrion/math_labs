@@ -12,8 +12,8 @@ namespace ordinary_least_squares {
 
         void Paint(Gdiplus::Graphics& graphics, std::function<PointF(PointF)>& toScreenCoord, std::function<PointF(PointF)>& toRealCoord) {
 
-            PointF coord = toScreenCoord(PointF(point.X - width / 2, point.Y - width / 2));
-            graphics.FillEllipse(&Gdiplus::SolidBrush(color), coord.X, coord.Y, width, width);
+            PointF coord = toScreenCoord(PointF(point.X, point.Y));
+            graphics.FillEllipse(&Gdiplus::SolidBrush(color), coord.X - width / 2, coord.Y - width / 2, width, width);
 
         }
 

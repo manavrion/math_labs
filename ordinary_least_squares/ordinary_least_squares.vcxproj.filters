@@ -48,6 +48,9 @@
     <ClInclude Include="xoy.h">
       <Filter>LabHelpers</Filter>
     </ClInclude>
+    <ClInclude Include="func_shape.h">
+      <Filter>LabHelpers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

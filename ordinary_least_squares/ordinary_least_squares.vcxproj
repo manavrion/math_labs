@@ -187,6 +187,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="func_shape.h" />
     <ClInclude Include="gdi_plate.h" />
     <ClInclude Include="line.h" />
     <ClInclude Include="main.h" />
