@@ -3,6 +3,7 @@
 
 #include "i_paintable.h"
 #include "line.h"
+#include <string>
 
 namespace ordinary_least_squares {
 
@@ -36,8 +37,54 @@ namespace ordinary_least_squares {
             graphics.DrawLine(&tpen, toScreenCoord(PointF(tmpx2m.X, 0)), toScreenCoord(PointF(tmpxm.X, 0)));
 
 
+            float size = 10'000;
+
+            while (abs(toScreenCoord(PointF(1, size)).Y - toScreenCoord(PointF(1, 0)).Y) > 350.0) {
+
+                size /= 10;
+            } 
+
+            Gdiplus::Font* font = new Gdiplus::Font(L"Arial", 7, Gdiplus::FontStyleBold);
+
+            graphics.SetTextRenderingHint(Gdiplus::TextRenderingHint::TextRenderingHintAntiAlias);
+
+            for (int i = -10; i <= 10; i++) {
+                if (i == 0) {
+                    continue;
+                }
+                std::wstring s = std::to_wstring(i*size);
+
+                s.pop_back();
+                s.pop_back();
+                s.pop_back();
+                s.pop_back();
+
+                PointF fp = toScreenCoord(PointF(i*size, dx / 2));
+                fp.Y += 10;
+                fp.X -= 2;
+
+                PointF fp2 = toScreenCoord(PointF(dx / 2, i*size));
+                fp2.Y += 10;
+                fp2.X -= 2;
+
+                graphics.DrawString(s.c_str(), -1, font, fp, &Gdiplus::SolidBrush(Gdiplus::Color::White));
+                graphics.DrawString(s.c_str(), -1, font, fp2, &Gdiplus::SolidBrush(Gdiplus::Color::White));
+
+                graphics.DrawLine(&pen, toScreenCoord(PointF(i*size, dx / 2)), toScreenCoord(PointF(i*size, -dx / 2)));
+                graphics.DrawLine(&pen, toScreenCoord(PointF(dx / 2, i*size)), toScreenCoord(PointF(-dx / 2, i*size)));
+            }
+            
+            delete font;
+
+
+
+
+
+
             PointF tmpy = toRealCoord(PointF(0, 450));
             PointF tmpy2 = toRealCoord(PointF(0, 50));
+
+
             // oy
             graphics.DrawLine(&pen, toScreenCoord(PointF(0, tmpy.Y)), toScreenCoord(PointF(0, tmpy2.Y)));
             graphics.DrawLine(&pen, toScreenCoord(PointF(dx, tmpy2.Y - dx)), toScreenCoord(PointF(0, tmpy2.Y)));

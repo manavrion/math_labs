@@ -12,7 +12,7 @@ namespace ordinary_least_squares {
 
         void Paint(Gdiplus::Graphics& graphics, std::function<PointF(PointF)>& toScreenCoord, std::function<PointF(PointF)>& toRealCoord) {
             
-            float step = 0.8;
+            float step = 2.0;
 
 
             float xMin = toRealCoord(PointF(0, 0)).X;
